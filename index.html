@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Happy Birthday 🎂 BOT</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;font-family:"Baloo 2",cursive;background:linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab,#f7971e,#e73c7e);background-size:400% 400%;animation:gradientShift 8s ease infinite;position:relative}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.balloon{position:fixed;bottom:-150px;font-size:3rem;animation:floatUp linear infinite;z-index:0;opacity:.8;pointer-events:none}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:.8}100%{transform:translateY(-120vh) rotate(20deg);opacity:0}}
+.sparkle{position:fixed;width:6px;height:6px;background:#fff;border-radius:50%;animation:sparkleAnim 2s ease-in-out infinite;z-index:0;pointer-events:none}
+@keyframes sparkleAnim{0%,100%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}}
+h1{font-family:"Pacifico",cursive;color:#fff;font-size:clamp(2.2rem,8vw,3.5rem);line-height:1.2;text-align:center;margin-bottom:10px;text-shadow:3px 3px 0 #ff6b6b,6px 6px 0 #feca57,9px 9px 0 #48dbfb;animation:bounce 2s ease-in-out infinite,rainbow 4s linear infinite;z-index:2}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+@keyframes rainbow{0%{text-shadow:3px 3px 0 #ff6b6b,6px 6px 0 #feca57,9px 9px 0 #48dbfb}33%{text-shadow:3px 3px 0 #feca57,6px 6px 0 #48dbfb,9px 9px 0 #ff6b6b}66%{text-shadow:3px 3px 0 #48dbfb,6px 6px 0 #ff6b6b,9px 9px 0 #feca57}100%{text-shadow:3px 3px 0 #ff6b6b,6px 6px 0 #feca57,9px 9px 0 #48dbfb}}
+.subtitle{font-family:"Pacifico",cursive;color:rgba(255,255,255,.9);font-size:clamp(1rem,4vw,1.3rem);text-align:center;margin-bottom:clamp(25px,6vw,40px);animation:fadeGlow 3s ease-in-out infinite;z-index:2}
+@keyframes fadeGlow{0%,100%{opacity:.7;text-shadow:0 0 10px rgba(255,255,255,.5)}50%{opacity:1;text-shadow:0 0 20px rgba(255,255,255,.9)}}
+.question{font-family:"Baloo 2",cursive;color:#fff;font-size:clamp(1.2rem,5vw,1.8rem);font-weight:800;text-align:center;margin-bottom:clamp(25px,6vw,35px);text-shadow:2px 2px 4px rgba(0,0,0,.3);z-index:2;animation:wiggle 3s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(1deg)}75%{transform:rotate(-1deg)}}
+.buttons{display:flex;align-items:center;justify-content:center;gap:clamp(12px,5vw,30px);position:relative;width:100%;min-height:80px;z-index:20}
+button{padding:15px clamp(25px,8vw,50px);font-size:clamp(1.1rem,5vw,1.4rem);font-family:"Baloo 2",cursive;font-weight:800;border:none;border-radius:60px;cursor:pointer;position:relative;overflow:hidden;white-space:nowrap;touch-action:manipulation;transition:transform .4s cubic-bezier(.68,-.55,.27,1.55),box-shadow .3s ease,width .5s ease,height .5s ease,border-radius .5s ease}
+button::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.3) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+button:hover::before{opacity:1}
+#yesBtn{background:linear-gradient(135deg,#00b09b,#96c93d);color:#fff;box-shadow:0 8px 25px rgba(0,176,155,.4),inset 0 -4px 8px rgba(0,0,0,.1);animation:glowPulse 2s ease-in-out infinite;transform-origin:center center;z-index:100}
+@keyframes glowPulse{0%,100%{box-shadow:0 8px 25px rgba(0,176,155,.4),0 0 0 0 rgba(0,176,155,.4)}50%{box-shadow:0 8px 25px rgba(0,176,155,.6),0 0 20px 5px rgba(0,176,155,.3)}}
+#yesBtn:hover{transform:scale(1.08)}
+#noBtn{background:linear-gradient(135deg,#fc4a1a,#f7b733);color:#fff;box-shadow:0 8px 25px rgba(252,74,26,.4),inset 0 -4px 8px rgba(0,0,0,.1);z-index:30}
+#noBtn:hover{transform:scale(1.08) rotate(2deg)}
+.celebration{display:none;color:#fff;font-family:"Pacifico",cursive;font-size:clamp(2rem,8vw,3rem);text-align:center;line-height:1.4;animation:popIn .6s cubic-bezier(.68,-.55,.27,1.55);z-index:50}
+.celebration .emoji-row{font-size:clamp(2.5rem,12vw,4rem);margin-top:20px;animation:spinBounce 1s ease infinite}
+@keyframes spinBounce{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(5deg)}}
+@keyframes popIn{0%{transform:scale(0) rotate(-10deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+.yes-fullscreen{position:fixed!important;inset:0;width:100vw!important;height:100vh!important;height:100dvh!important;border-radius:0!important;padding:20px!important;display:flex!important;align-items:center;justify-content:center;z-index:9999!important;font-size:clamp(2rem,10vw,5rem)!important;background:linear-gradient(135deg,#00b09b,#96c93d,#00b09b)!important;background-size:300% 300%!important;animation:fullscreenGradient 3s ease infinite!important;box-shadow:none!important;transform:scale(1)!important;white-space:normal!important}
+@keyframes fullscreenGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.confetti{position:fixed;top:-10px;width:12px;height:12px;z-index:10000;animation:confettiFall linear forwards;pointer-events:none}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0) scale(1);opacity:1}100%{transform:translateY(100vh) rotate(720deg) scale(.5);opacity:0}}
+.cake-float{position:fixed;font-size:2.5rem;animation:floatAround 6s ease-in-out infinite;z-index:1;opacity:.6;pointer-events:none}
+@keyframes floatAround{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(10px,-20px) rotate(10deg)}50%{transform:translate(-5px,-35px) rotate(-5deg)}75%{transform:translate(15px,-15px) rotate(5deg)}}
+@media(max-width:600px){body{padding:15px}h1{max-width:95vw;margin-bottom:8px}.subtitle{margin-bottom:25px}.question{max-width:95vw;margin-bottom:25px}.buttons{gap:15px}button{min-height:58px;padding-top:12px;padding-bottom:12px}.balloon{font-size:2rem}.cake-float{font-size:1.8rem}}
+@media(max-width:380px){.buttons{gap:10px}button{padding-left:18px;padding-right:18px;font-size:1rem}.question{font-size:1.15rem}}
+@media(prefers-reduced-motion:reduce){*,*::before{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Bot! 🎂</h1>
+<p class="subtitle">✨ Make a wish ✨</p>
+<p class="question">🎉 Pro Lai party dinxu Fix?</p>
+
+<div class="buttons" id="btnContainer">
+<button id="yesBtn">🎊 Yes! 🎊</button>
+<button id="noBtn">😢 No</button>
+</div>
+
+<div class="celebration" id="celebration">
+🥳 Malai Tha Thiyooo 🥳
+<br>
+<div class="emoji-row">🎊🎈🎁🎂🎉</div>
+</div>
+
+<script>
+const balloons=["🎈","🎈","🎈","🎈","🎈","🎈","🎈","🎈"];
+balloons.forEach((b,i)=>{
+const el=document.createElement("div");
+el.className="balloon";
+el.textContent=b;
+el.style.left=Math.random()*100+"vw";
+el.style.animationDuration=5+Math.random()*5+"s";
+el.style.animationDelay=i*.8+"s";
+el.style.fontSize=2+Math.random()*2+"rem";
+document.body.appendChild(el);
+});
+
+for(let i=0;i<20;i++){
+const s=document.createElement("div");
+s.className="sparkle";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+s.style.animationDelay=Math.random()*3+"s";
+s.style.animationDuration=1.5+Math.random()*2+"s";
+document.body.appendChild(s);
+}
+
+const cakes=["🎂","🧁","🍭","🍬"];
+cakes.forEach((c,i)=>{
+const el=document.createElement("div");
+el.className="cake-float";
+el.textContent=c;
+el.style.left=10+i*25+"vw";
+el.style.top=20+Math.random()*60+"vh";
+el.style.animationDelay=i*1.5+"s";
+document.body.appendChild(el);
+});
+
+const yesBtn=document.getElementById("yesBtn");
+const noBtn=document.getElementById("noBtn");
+const celebration=document.getElementById("celebration");
+const btnContainer=document.getElementById("btnContainer");
+
+let attempts=0;
+
+const yesScales=[1.5,2,2.75];
+const messages=["🎊 Yes! 🎊","😏 Yes! 😏","😂 YES PLEASE! 😂"];
+
+noBtn.addEventListener("mouseenter",dodgeNo);
+
+noBtn.addEventListener("touchstart",e=>{
+e.preventDefault();
+dodgeNo();
+},{passive:false});
+
+noBtn.addEventListener("click",dodgeNo);
+
+function dodgeNo(){
+attempts++;
+
+if(attempts>=4){
+noBtn.style.display="none";
+yesBtn.classList.add("yes-fullscreen");
+yesBtn.textContent="🎉 YES! 🎉";
+return;
+}
+
+noBtn.style.position="fixed";
+noBtn.style.transition="left .25s ease,top .25s ease,transform .25s ease";
+
+const padding=10;
+const buttonWidth=noBtn.offsetWidth;
+const buttonHeight=noBtn.offsetHeight;
+const maxX=Math.max(padding,window.innerWidth-buttonWidth-padding);
+const maxY=Math.max(padding,window.innerHeight-buttonHeight-padding);
+
+const x=padding+Math.random()*Math.max(0,maxX-padding);
+const y=padding+Math.random()*Math.max(0,maxY-padding);
+
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+
+yesBtn.style.transform=`scale(${yesScales[attempts-1]})`;
+yesBtn.style.zIndex="100";
+yesBtn.textContent=messages[attempts-1];
+}
+
+yesBtn.addEventListener("click",celebrate);
+
+function celebrate(){
+btnContainer.style.display="none";
+noBtn.style.display="none";
+celebration.style.display="block";
+launchConfetti(120);
+}
+
+function launchConfetti(count){
+const colors=["#ff6b6b","#feca57","#48dbfb","#ff9ff3","#54a0ff","#5f27cd","#01a3a4","#ff9f43"];
+
+for(let i=0;i<count;i++){
+const confetti=document.createElement("div");
+confetti.className="confetti";
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.background=colors[Math.floor(Math.random()*colors.length)];
+confetti.style.animationDuration=Math.random()*3+2+"s";
+confetti.style.animationDelay=Math.random()*2+"s";
+confetti.style.borderRadius=Math.random()>.5?"50%":"2px";
+confetti.style.width=8+Math.random()*8+"px";
+confetti.style.height=8+Math.random()*8+"px";
+document.body.appendChild(confetti);
+setTimeout(()=>confetti.remove(),6000);
+}
+}
+
+window.addEventListener("resize",()=>{
+if(noBtn.style.position==="fixed"&&noBtn.style.display!=="none"){
+const rect=noBtn.getBoundingClientRect();
+const padding=10;
+let x=rect.left;
+let y=rect.top;
+
+if(x+rect.width>window.innerWidth-padding)x=window.innerWidth-rect.width-padding;
+if(y+rect.height>window.innerHeight-padding)y=window.innerHeight-rect.height-padding;
+
+noBtn.style.left=Math.max(padding,x)+"px";
+noBtn.style.top=Math.max(padding,y)+"px";
+}
+});
+</script>
+
+</body>
+</html>
